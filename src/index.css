@@ -1,0 +1,159 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+@import "leaflet.markercluster/dist/MarkerCluster.css";
+@import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+
+/* Custom Marker Styling */
+.school-pin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.18s ease;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.school-pin:hover {
+  transform: translateY(-2px) scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.school-pin.is-selected {
+  transform: translateY(-4px) scale(1.28);
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.45);
+  z-index: 1000 !important;
+}
+
+/* School Type Background Colors */
+.school-pin.type-일반고 {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: 2px solid #ffffff;
+}
+
+.school-pin.type-자사고 {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  border: 2px solid #ffffff;
+}
+
+.school-pin.type-특목고 {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  border: 2px solid #ffffff;
+}
+
+.school-pin.type-영재고 {
+  background: linear-gradient(135deg, #f43f5e, #be123c);
+  border: 2px solid #ffffff;
+}
+
+.school-pin.type-특성화고 {
+  background: linear-gradient(135deg, #10b981, #047857);
+  border: 2px solid #ffffff;
+}
+
+.school-pin.type-학력인정고,
+.school-pin.type-기타 {
+  background: linear-gradient(135deg, #64748b, #475569);
+  border: 2px solid #ffffff;
+}
+
+/* Foundation Type Badges */
+.school-pin.fond-사립::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background-color: #f59e0b;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.school-pin.fond-국립::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background-color: #ef4444;
+  border: 1.5px solid #ffffff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Marker Cluster Customization */
+.marker-cluster-small {
+  background-color: rgba(59, 130, 246, 0.25) !important;
+}
+.marker-cluster-small div {
+  background-color: rgba(37, 99, 235, 0.9) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.marker-cluster-medium {
+  background-color: rgba(79, 70, 229, 0.25) !important;
+}
+.marker-cluster-medium div {
+  background-color: rgba(67, 56, 202, 0.9) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.marker-cluster-large {
+  background-color: rgba(14, 165, 233, 0.25) !important;
+}
+.marker-cluster-large div {
+  background-color: rgba(2, 132, 199, 0.9) !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 13px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+/* District Labels */
+.district-map-label {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  color: #334155;
+  font-weight: 600;
+  font-size: 11px;
+  padding: 2px 6px;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+/* Leaflet Popup Customization */
+.leaflet-popup-content-wrapper {
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+}
+
+.leaflet-popup-content {
+  margin: 0;
+  line-height: 1.4;
+}
+
+.leaflet-container {
+  font-family: inherit;
+}
